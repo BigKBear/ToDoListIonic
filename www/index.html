@@ -48,11 +48,20 @@
         </ion-side-menu-content>
 
         <!-- Left menu -->
-        <ion-side-menu side="left">
-          <ion-header-bar class="bar-dark">
-            <h1 class="title">Projects</h1>
-          </ion-header-bar>
-        </ion-side-menu>
+          <ion-side-menu side="left">
+            <ion-header-bar class="bar-dark">
+              <h1 class="title">Projects</h1>
+              <button class="button button-icon ion-plus" ng-click="newProject()">
+              </button>
+            </ion-header-bar>
+            <ion-content scroll="false">
+              <ion-list>
+                <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
+                  {{project.title}}
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </ion-side-menu>
 
       </ion-side-menus>
         <script id="new-task.html" type="text/ng-template">
